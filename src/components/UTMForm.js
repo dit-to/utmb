@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom'; 
 import { db } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const UTMForm = ({ onFocus }) => {
   const location = useLocation();
@@ -11,6 +11,7 @@ const UTMForm = ({ onFocus }) => {
     campaign: '',
     content: '',
     term: '',
+    date: serverTimestamp()
   });
 
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);

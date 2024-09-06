@@ -15,16 +15,22 @@ const App = () => {
   const [keywords, setKeywords] = useState([]);
 
   const fetchKeywordsFromDB = async (type) => {
+    // 필수 키워드만 조회 (source, medium, campaign)
+    const requiredFields = ['source', 'medium', 'campaign'];
+  
+    if (!requiredFields.includes(type)) {
+      return []; // 선택된 탭이 필수 키워드가 아닌 경우, 빈 배열 반환
+    }
+  
     const q = query(
-      collection(db, 'utmData'), // 모든 데이터를 utmData 컬렉션에서 가져옴
-      where(type, '!=', '') // 선택된 탭에 해당하는 필드가 빈 값이 아닌 것만 필터링
+      collection(db, 'utmData'),
+      where(type, '!=', '') // 선택된 필드에 데이터가 있는지 확인
     );
   
     const querySnapshot = await getDocs(q);
-    const fetchedKeywords = querySnapshot.docs.map(doc => doc.data()[type]); // 선택된 탭에 해당하는 필드만 추출
+    const fetchedKeywords = querySnapshot.docs.map(doc => doc.data()[type]); // 선택된 필드 데이터만 추출
     const keywordCounts = {};
   
-    // 각 키워드의 빈도수를 계산
     fetchedKeywords.forEach(keyword => {
       if (keywordCounts[keyword]) {
         keywordCounts[keyword]++;
@@ -33,19 +39,18 @@ const App = () => {
       }
     });
   
-    // 전체 키워드 개수 계산
     const totalKeywords = fetchedKeywords.length;
   
-    // 상위 10개의 키워드를 빈도수 기준으로 정렬하여 퍼센트 계산 후 반환
+    // 상위 10개의 키워드를 빈도수 기준으로 정렬하여 반환
     const sortedKeywords = Object.entries(keywordCounts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 10)
-    .map(([name, count]) => ({
-      name,
-      count: Math.round((count / totalKeywords) * 100) // 퍼센트로 계산 후 반올림하여 정수로 표시
-    }));
-
-  return sortedKeywords;
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .map(([name, count]) => ({
+        name,
+        count: Math.round((count / totalKeywords) * 100) // 퍼센트로 계산 후 반올림
+      }));
+  
+    return sortedKeywords;
   };
 
   useEffect(() => {
@@ -62,7 +67,10 @@ const App = () => {
   };
 
   const handleInputFocus = (inputName) => {
-    setActiveTab(inputName);
+    const requiredFields = ['source', 'medium', 'campaign']; 
+    if (requiredFields.includes(inputName)) {
+      setActiveTab(inputName);
+    }
   };
 
   return (
@@ -76,7 +84,7 @@ const App = () => {
               <div className="flex-1 bg-gray-100 py-6 px-8 rounded-lg">
                 <h2 className="text-2xl font-500 mb-6">상위 10개의 키워드</h2>
                 <div className="tabs flex space-x-2 mb-6">
-                  {['source', 'medium', 'campaign', 'content', 'term'].map(tab => (
+                  {['source', 'medium', 'campaign'].map(tab => (
                     <button
                       key={tab}
                       className={`px-4 py-2 rounded-full ${activeTab === tab ? 'bg-secondary-500 text-white font-600' : 'bg-gray-300 text-gray-600'}`}

@@ -72,7 +72,7 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/builder" element={
           <div className="flex flex-row w-full max-w-[1200px] mx-auto font-title">
-            <div className='flex flex-row space-x-5'>
+            <div className='flex flex-row space-x-5 w-full'>
               <div className="flex-1 bg-gray-100 py-6 px-8 rounded-lg">
                 <h2 className="text-2xl font-500 mb-6">상위 10개의 키워드</h2>
                 <div className="tabs flex space-x-2 mb-6">

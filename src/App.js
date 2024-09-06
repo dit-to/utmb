@@ -5,6 +5,7 @@ import UTMForm from './components/UTMForm';
 import KeywordChart from './components/KeywordChart';
 import { db } from './firebase'; // Firebase 초기화 파일에서 Firestore 가져오기
 import { collection, query, where, getDocs } from 'firebase/firestore'; // Firestore 메서드들 가져오기
+import './App.css';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('source'); // 기본 활성화된 탭

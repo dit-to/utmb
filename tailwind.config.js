@@ -32,7 +32,7 @@ module.exports = {
           500: '#FFC700',
         },
         gray: {
-          100: '#FAFAFA', 
+          100: '#FCFCFC', 
           200: '#F1F1F3',
           300: '#E2E2E5',
           400: '#C4C4CA',

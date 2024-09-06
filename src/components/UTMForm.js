@@ -65,7 +65,7 @@ const UTMForm = ({ onFocus }) => {
             <h3 className='font-600'>
               <span className='text-red-500'>* </span>
               방문자는 어디서 왔나요?</h3>
-            <div className='px-4 py-2 bg-gray-200 mt-1 rounded-md'>
+            <div className='px-4 py-2 bg-primary-50 mt-1 rounded-md'>
               <p className='text-gray-600 text-sm'>검색엔진, 사이트 이름 등 방문자가 웹사이트에 도착하기 전에 출발한 장소를 의미해요.</p>
             </div>
           </label>
@@ -86,7 +86,7 @@ const UTMForm = ({ onFocus }) => {
             <h3 className='font-600'>
               <span className='text-red-500'>* </span>
               방문자는 어떤 통로로 들어왔나요?</h3>
-            <div className='px-4 py-2 bg-gray-200 mt-1 rounded-md'>
+            <div className='px-4 py-2 bg-primary-50 mt-1 rounded-md'>
               <p className='text-gray-600 text-sm'>광고 형식, 유입 채널 등 사용자가 웹사이트에 들어오기 위해 통과한 길목을 의미해요.</p>
             </div>
           </label>
@@ -107,7 +107,7 @@ const UTMForm = ({ onFocus }) => {
             <h3 className='font-600'>
               <span className='text-red-500'>* </span>
               방문자는 무엇 때문에 들어왔나요?</h3>
-            <div className='px-4 py-2 bg-gray-200 mt-1 rounded-md'>
+            <div className='px-4 py-2 bg-primary-50 mt-1 rounded-md'>
               <p className='text-gray-600 text-sm'>할인 쿠폰 같이 방문자가 유입될 수 있도록 유혹시킨 요소를 의미해요.</p>
             </div>
           </label>
@@ -126,7 +126,7 @@ const UTMForm = ({ onFocus }) => {
           <label className="block text-gray-700" htmlFor="content">
             <h3 className='font-600'>
               광고에 담긴 콘텐츠 내용은 무엇이었나요?</h3>
-            <div className='px-4 py-2 bg-gray-200 mt-1 rounded-md'>
+            <div className='px-4 py-2 bg-primary-50 mt-1 rounded-md'>
               <p className='text-gray-600 text-sm'>하나의 캠페인에서 여러종류의 광고나 콘텐츠가 있을 경우 활용할 수 있는 요소에요.</p>
             </div>
           </label>
@@ -145,7 +145,7 @@ const UTMForm = ({ onFocus }) => {
           <label className="block text-gray-700" htmlFor="term">
             <h3 className='font-600'>
               방문자가 찾아본 키워드는 어떤 것인가요??</h3>
-            <div className='px-4 py-2 bg-gray-200 mt-1 rounded-md'>
+            <div className='px-4 py-2 bg-primary-50 mt-1 rounded-md'>
               <p className='text-gray-600 text-sm'>검색 광고를 진행할 때 어떤 검색어를 통해 들어왔는지 확인할 수 있는 요소에요.</p>
             </div>
           </label>

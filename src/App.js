@@ -17,7 +17,7 @@ const App = () => {
   const fetchKeywordsFromDB = async (type) => {
     // 필수 키워드만 조회 (source, medium, campaign)
     const requiredFields = ['source', 'medium', 'campaign'];
-  
+
     if (!requiredFields.includes(type)) {
       return []; // 선택된 탭이 필수 키워드가 아닌 경우, 빈 배열 반환
     }
@@ -96,7 +96,7 @@ const App = () => {
                 </div>
                 <KeywordChart activeTab={activeTab} keywords={keywords} />
               </div>
-              <div className="flex-1 bg-gray-100 py-6 px-8 rounded-lg">
+              <div className="flex-1 bg-white rounded-lg">
                 <UTMForm onFocus={handleInputFocus} />
               </div>
             </div>

@@ -3,19 +3,21 @@ import React from 'react';
 const KeywordChart = ({ activeTab, keywords }) => {
   return (
     <div>
-      <h2 className="text-xl font-bold mb-2">상위 10개의 키워드 - {activeTab}</h2>
       {keywords.length > 0 ? (
         <ul>
           {keywords.map((keyword, index) => (
-            <li key={index} className="flex justify-between items-center mb-2">
-              <span>{keyword.name}</span>
-              <div className="w-full bg-gray-200 ml-2 mr-2 rounded-full">
+            <li key={index} className="flex justify-between items-center mb-4 text-md">
+              <div className={`flex items-center w-[180px] gap-2 ${index < 3 ? 'font-700' : 'font-400 text-gray-700'}`}>
+                <span>{index + 1}위</span>
+                <span >{keyword.name}</span>
+              </div>
+              <div className="w-full bg-primary-50 ml-2 mr-2 rounded-full">
                 <div
-                  className="bg-purple-600 text-xs font-medium text-white text-center p-0.5 leading-none rounded-full"
+                  className={`${index < 3 ? 'bg-primary-500': 'bg-primary-400'}  text-xs  text-white text-center p-0.5 leading-none rounded-full h-[10px]`}
                   style={{ width: `${keyword.count}%` }} // 키워드 빈도를 비율로 설정
                 ></div>
               </div>
-              <span>{keyword.count}%</span>
+              <span className={`ml-4 ${index < 3 ? 'font-700' : 'font-400 text-gray-700'}`}>{keyword.count}%</span>
             </li>
           ))}
         </ul>

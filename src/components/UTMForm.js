@@ -63,7 +63,7 @@ const UTMForm = ({ onFocus }) => {
   };
 
   return (
-    <div>
+    <div className=''>
       <div className="space-y-4">
         <input
           name="source"

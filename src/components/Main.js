@@ -29,7 +29,7 @@ const Main = () => {
   return (
     <div className="flex w-screen items-center justify-center h-screen bg-white main-frame">
       <div className="h-full w-full max-w-lg flex flex-col items-center px-5">
-        <div className='flex flex-col font-title mt-[300px] items-center'>
+        <div className='flex flex-col font-title mt-[160px] items-center'>
           <h1 className="text-5xl font-700 text-primary-500 mb-6">무료 UTM 빌더</h1>
           <h2 className="text-xl font-500 text-gray-500 mb-8">잠재고객이 어떤 경로로 유입되었는지 확인해보세요!</h2>
           <div className='w-full font-title flex flex-col gap-7'>
@@ -39,7 +39,7 @@ const Main = () => {
               onChange={handleInputChange}
               onFocus={() => !url && setUrl('https://')}
               placeholder="https://example.com"
-              className="bg-primary-50 py-3 px-4 rounded-xl w-full text-gray-600 placeholder-gray-400 main-input focus:shadow-[0_0_20px_0_rgba(97,95,225,0.3)] focus:outline-[1px] focus:outline-primary-500"
+              className="bg-primary-50 p-4 px-4 rounded-xl w-full text-gray-600 placeholder-gray-400 main-input focus:shadow-[0_0_20px_0_rgba(97,95,225,0.3)] focus:outline-[1px] focus:outline-primary-500"
             />
             <button 
               onClick={handleNextClick}

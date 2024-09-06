@@ -6,6 +6,9 @@ import KeywordChart from './components/KeywordChart';
 import { db } from './firebase'; // Firebase 초기화 파일에서 Firestore 가져오기
 import { collection, query, where, getDocs } from 'firebase/firestore'; // Firestore 메서드들 가져오기
 import './App.css';
+import Header from './components/Header';
+import MetaTagForm from './components/MetaTagForm';
+import Contact from './components/Contact';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('source'); // 기본 활성화된 탭
@@ -64,30 +67,35 @@ const App = () => {
 
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/builder" element={
-          <div className="flex p-5 space-x-5">
-            <div className="flex-1 bg-gray-100 p-5 rounded-lg">
-              <h1 className="text-2xl font-bold text-purple-600 mb-4">무료 UTM 빌더</h1>
-              <div className="tabs flex space-x-2 mb-4">
-                {['source', 'medium', 'campaign', 'content', 'term'].map(tab => (
-                  <button
-                    key={tab}
-                    className={`px-4 py-2 rounded-md ${activeTab === tab ? 'bg-purple-600 text-white' : 'bg-gray-300 text-gray-600'}`}
-                    onClick={() => handleTabClick(tab)}
-                  >
-                    {tab}
-                  </button>
-                ))}
+          <div className="flex flex-row w-full max-w-[1200px] mx-auto font-title">
+            <div className='flex flex-row space-x-5'>
+              <div className="flex-1 bg-gray-100 py-6 px-8 rounded-lg">
+                <h2 className="text-2xl font-500 mb-6">상위 10개의 키워드</h2>
+                <div className="tabs flex space-x-2 mb-6">
+                  {['source', 'medium', 'campaign', 'content', 'term'].map(tab => (
+                    <button
+                      key={tab}
+                      className={`px-4 py-2 rounded-full ${activeTab === tab ? 'bg-secondary-500 text-white font-600' : 'bg-gray-300 text-gray-600'}`}
+                      onClick={() => handleTabClick(tab)}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+                <KeywordChart activeTab={activeTab} keywords={keywords} />
               </div>
-              <KeywordChart activeTab={activeTab} keywords={keywords} />
-            </div>
-            <div className="flex-1 bg-gray-100 p-5 rounded-lg">
-              <UTMForm onFocus={handleInputFocus} />
+              <div className="flex-1 bg-gray-100 py-6 px-8 rounded-lg">
+                <UTMForm onFocus={handleInputFocus} />
+              </div>
             </div>
           </div>
         } />
+        <Route path="/metabuild" element={<MetaTagForm />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );

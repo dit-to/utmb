@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as LogoIcon } from '../assets/logo.svg';
 import { ReactComponent as MenuIcon } from '../assets/ico-menu.svg';
+import { ReactComponent as CloseIcon } from '../assets/ico-close.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -36,16 +37,20 @@ const Header = () => {
       </div>
       {/* 모바일 메뉴 */}
       {isMobileMenuOpen && (
-        <div className="absolute top-16 left-0 w-full bg-white shadow-lg rounded-lg p-4 md:hidden z-50">
+        <div className="fixed inset-0 bg-white p-4 md:hidden z-50 transition-transform transform translate-x-0">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="font-bold text-xl">메뉴</h2>
+            <CloseIcon onClick={handleMenuToggle} />
+          </div>
           <nav className="flex flex-col items-start space-y-4">
-            <Link to="/" onClick={handleMenuToggle} className="hover:text-primary-500">
-              UTM 빌더
+            <Link to="/" onClick={handleMenuToggle} className="hover:text-primary-500 font-700 text-primary-500">
+              메뉴1
             </Link>
             <Link to="/metabuild" onClick={handleMenuToggle} className="hover:text-primary-500">
-              메타태그 빌더
+              메뉴2
             </Link>
             <Link to="/contact" onClick={handleMenuToggle} className="hover:text-primary-500">
-              무엇이 필요하신가요?
+              메뉴3
             </Link>
           </nav>
         </div>

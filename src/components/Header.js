@@ -44,13 +44,13 @@ const Header = () => {
           </div>
           <nav className="flex flex-col items-start space-y-4">
             <Link to="/" onClick={handleMenuToggle} className="hover:text-primary-500 font-700 text-primary-500">
-              메뉴1
+              UTM 빌더
             </Link>
             <Link to="/metabuild" onClick={handleMenuToggle} className="hover:text-primary-500">
-              메뉴2
+              메타태그 빌더
             </Link>
             <Link to="/contact" onClick={handleMenuToggle} className="hover:text-primary-500">
-              메뉴3
+              무엇이 필요하신가요?
             </Link>
           </nav>
         </div>

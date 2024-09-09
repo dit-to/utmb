@@ -79,9 +79,14 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/builder" element={
-          <div className="flex flex-row w-full max-w-[1200px] mx-auto font-title">
-            <div className='flex flex-row space-x-5 w-full'>
-              <div className="flex-1 bg-gray-100 py-6 px-8 rounded-lg">
+          <div className="flex flex-col md:flex-row w-full max-w-[1200px] mx-auto font-title">
+            <div className='flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 w-full'>
+              {/* 모바일에서는 UTMForm이 위로, 데스크탑에서는 오른쪽으로 */}
+              <div className="flex-1 bg-white rounded-lg order-2 md:order-1">
+                <UTMForm onFocus={handleInputFocus} />
+              </div>
+              {/* 모바일에서는 KeywordChart가 아래로, 데스크탑에서는 왼쪽으로 */}
+              <div className="flex-1 bg-gray-100 py-6 px-8 rounded-lg order-1 md:order-2">
                 <h2 className="text-2xl font-500 mb-6">상위 10개의 키워드</h2>
                 <div className="tabs flex space-x-2 mb-6">
                   {['source', 'medium', 'campaign'].map(tab => (
@@ -95,9 +100,6 @@ const App = () => {
                   ))}
                 </div>
                 <KeywordChart activeTab={activeTab} keywords={keywords} />
-              </div>
-              <div className="flex-1 bg-white rounded-lg">
-                <UTMForm onFocus={handleInputFocus} />
               </div>
             </div>
           </div>

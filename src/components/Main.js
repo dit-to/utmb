@@ -29,7 +29,7 @@ const Main = () => {
   return (
     <div className="flex w-screen items-center justify-center h-screen bg-white main-frame">
       <div className="h-full w-full max-w-lg flex flex-col items-center px-5">
-        <div className='flex flex-col font-title mt-[160px] items-center'>
+        <div className='flex flex-col font-title mt-20 md:mt-[160px] items-center'>
           <h1 className="text-4xl md:text-5xl font-700 text-primary-500 mb-6">무료 UTM 빌더</h1>
           <h2 className="text-lg md:text-xl font-500 text-gray-500 mb-8 text-center">
             잠재고객이 어떤 경로로<br className="md:hidden" /> 유입되었는지 확인해보세요!

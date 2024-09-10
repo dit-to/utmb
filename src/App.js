@@ -79,20 +79,16 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/builder" element={
-          <div className="flex flex-col md:flex-row w-full max-w-[1200px] mx-auto font-title">
-            <div className='flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5 w-full'>
-              {/* 모바일에서는 UTMForm이 위로, 데스크탑에서는 오른쪽으로 */}
-              <div className="flex-1 bg-white rounded-lg order-2 md:order-1">
-                <UTMForm onFocus={handleInputFocus} />
-              </div>
+          <div className="flex flex-col md:flex-row w-full px-2 md:px-0 max-w-[1200px] mx-auto font-title">
+            <div className='flex flex-col md:flex-row md:space-y-0 w-full'>
               {/* 모바일에서는 KeywordChart가 아래로, 데스크탑에서는 왼쪽으로 */}
-              <div className="flex-1 bg-gray-100 py-6 px-8 rounded-lg order-1 md:order-2">
-                <h2 className="text-2xl font-500 mb-6">상위 10개의 키워드</h2>
-                <div className="tabs flex space-x-2 mb-6">
+              <div className="flex-1 bg-gray-100 md:py-6 px-2 py-2 md:px-8 rounded-lg order-1 md:order-1">
+                <h2 className="text-xl md:text-2xl font-500 mb-3 md:mb-6">상위 10개의 키워드</h2>
+                <div className="tabs flex space-x-2 mb-3 md:mb-6">
                   {['source', 'medium', 'campaign'].map(tab => (
                     <button
                       key={tab}
-                      className={`px-4 py-2 rounded-full ${activeTab === tab ? 'bg-secondary-500 text-white font-600' : 'bg-gray-300 text-gray-600'}`}
+                      className={`px-3 md:px-4 py-1 md:py-2 rounded-full ${activeTab === tab ? 'bg-secondary-500 text-white font-600 text-sm md:text-base' : 'bg-gray-300 text-gray-600'}`}
                       onClick={() => handleTabClick(tab)}
                     >
                       {tab}
@@ -100,6 +96,10 @@ const App = () => {
                   ))}
                 </div>
                 <KeywordChart activeTab={activeTab} keywords={keywords} />
+              </div>
+              {/* 모바일에서는 UTMForm이 위로, 데스크탑에서는 오른쪽으로 */}
+              <div className="flex-1 bg-white rounded-lg order-2 md:order-2 md:py-6 px-2 md:px-8 mt-2 md:mt-0">
+                <UTMForm onFocus={handleInputFocus} />
               </div>
             </div>
           </div>

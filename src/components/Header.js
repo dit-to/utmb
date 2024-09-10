@@ -34,13 +34,13 @@ const Header = () => {
         </div>
         {/* 데스크탑 환경에서는 내비게이션 링크 표시, 모바일에서는 햄버거 메뉴 아이콘 표시 */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="hover:text-primary-500 hover:font-700">
+          <Link to="/" className={`hover:text-primary-500 hover:font-700 ${isActive('/')}`}>
             UTM 빌더
           </Link>
-          <Link to="/metabuild" className="hover:text-primary-500 hover:font-700">
+          <Link to="/metabuild" className={`hover:text-primary-500 hover:font-700 ${isActive('/metabuild')}`}>
             메타태그 빌더
           </Link>
-          <Link to="/contact" className="hover:text-primary-500 hover:font-700">
+          <Link to="/contact" className={`hover:text-primary-500 hover:font-700 ${isActive('/contact')}`}>
             무엇이 필요하신가요?
           </Link>
         </nav>

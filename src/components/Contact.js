@@ -31,19 +31,19 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="max-w-2xl mx-auto py-8 px-4">
-      <h2 className="text-2xl font-title font-bold mb-4">무엇이 필요하신가요?</h2>
+    <div className="max-w-2xl mx-auto py-1 md:py-8 px-5">
+      <h2 className="text-xl md:text-2xl font-title font-bold mb-4">무엇이 필요하신가요?</h2>
       <div className="mb-4 w-full">
         <textarea
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="의견을 남겨주세요..."
-          className="w-full p-3 border rounded-md font-title font-400"
+          className="w-full p-3 border rounded-md font-title font-400 text-sm md:text-base min-h-[100px] md:min-h-[150px] focus:outline-none"
         ></textarea>
         <div className='flex flex-row w-full justify-end'>
           <button
             onClick={handleAddComment}
-            className="mt-2 bg-primary-500 font-600 text-lg text-white py-3 px-6 rounded-full"
+            className="mt-2 bg-primary-500 font-500 md:font-600 text-base md:text-lg text-white py-2 md:py-3 px-6 rounded-full font-title"
           >
             의견 남기기
           </button>
@@ -51,13 +51,13 @@ const Contact = () => {
       </div>
       <div className='mt-10'>
       {comments.map(comment => (
-          <div key={comment.id} className="p-3 mb-2 bg-gray-100 rounded-md font-title font-400">
-            <p>{comment.text}</p>
+          <div key={comment.id} className="p-3 mb-2 bg-gray-100 rounded-md font-title">
+            <p className='text-sm md:text-base font-500'>{comment.text}</p>
             <small className="text-gray-500 font-title font-200">
               {comment.timestamp?.toDate().toLocaleString() || '방금 전'}
             </small>
             <div className="mt-2 bg-gray-200 p-[10px] rounded-md">
-              <p className="text-md font-title font-400 text-primary-900">
+              <p className="text-sm md:text-md font-title font-400 text-primary-900">
                 🧑🏻‍💻 {comment.reply ? comment.reply : '아직 답글이 없습니다.'}
               </p>
             </div>

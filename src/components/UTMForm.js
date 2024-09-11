@@ -181,7 +181,7 @@ const UTMForm = ({ onFocus }) => {
 
       {/* 토스트 메시지 */}
       {showToast && (
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded shadow-lg">
+        <div className="fixed top-10 left-1/2 transform -translate-x-1/2 w-[300px] bg-green-500 text-center text-white px-4 py-2 rounded shadow-lg">
           링크가 성공적으로 복사되었습니다!
         </div>
       )}
